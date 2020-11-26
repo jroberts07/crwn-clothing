@@ -3,8 +3,6 @@ import { Switch, Route, Redirect } from 'react-router';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
 
-import './App.css';
-
 import HomePage from './pages/homepage/homepage.component';
 import ShopPage from './pages/shop/shop.component';
 import Header from './components/header/header.component';
@@ -13,6 +11,7 @@ import { auth, createUserProfileDocument } from './firebase/firebase.utils';
 import { setCurrentUser } from './redux/user/user.actions';
 import { selectCurrentUser } from './redux/user/user.selectors'
 import CheckoutPage from './pages/checkout/checkout.component';
+import { GlobalStyle } from './global.styles'
 
 class App extends React.Component {
   unsubscribeFromAuth = null;
@@ -43,6 +42,7 @@ class App extends React.Component {
   render() {
     return (
       <div>
+        <GlobalStyle />
         <Header />
         <Switch>
           <Route exact path = '/' component={HomePage} />
